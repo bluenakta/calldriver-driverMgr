@@ -24,10 +24,6 @@ public class PolicyHandler{
 
             List<Driver> list = dr.findByStatus("NON");
 
-
-
-
-
             if(list == null || list.size() < 1) {
                 DriverAssignFailed driverAssignFailed = new DriverAssignFailed();
                 driverAssignFailed.setCallId(driverRequested.getId());
@@ -44,6 +40,20 @@ public class PolicyHandler{
 
     }
 }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverDriverCanceled_DriverCanceled(@Payload Canceled canceled){
+
+
+        if(canceled.isMe()){
+
+            Driver driver = dr.findByCallId(canceled.getId());
+            driver.setStatus("NON");
+            dr.save(driver);
+            dr.save(driver);
+
+        }
+    }
     
 
 }

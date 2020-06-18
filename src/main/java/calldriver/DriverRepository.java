@@ -8,4 +8,6 @@ public interface DriverRepository extends PagingAndSortingRepository<Driver, Lon
 
     List<Driver> findByStatus(String status);
 
+    Driver findByCallId(Long callId);
+
 }
