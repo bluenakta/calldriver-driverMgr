@@ -14,17 +14,12 @@ public class Driver {
     private Long callId;
     private String status;
 
-    @PrePersist
-    public void onPrePersist(){
+    @PostUpdate
+    public void onPostUpdate(){
+
         DriverAssigned driverAssigned = new DriverAssigned();
         BeanUtils.copyProperties(this, driverAssigned);
         driverAssigned.publishAfterCommit();
-
-
-        DriverAssignFailed driverAssignFailed = new DriverAssignFailed();
-        BeanUtils.copyProperties(this, driverAssignFailed);
-        driverAssignFailed.publishAfterCommit();
-
 
     }
 
@@ -50,8 +45,5 @@ public class Driver {
     public void setStatus(String status) {
         this.status = status;
     }
-
-
-
 
 }

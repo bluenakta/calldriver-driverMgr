@@ -2,7 +2,10 @@ package calldriver;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface DriverRepository extends PagingAndSortingRepository<Driver, Long>{
+import java.util.List;
 
+public interface DriverRepository extends PagingAndSortingRepository<Driver, Long> {
+
+    List<Driver> findByStatus(String status);
 
 }
