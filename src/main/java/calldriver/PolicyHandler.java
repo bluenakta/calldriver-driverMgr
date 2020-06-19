@@ -50,7 +50,6 @@ public class PolicyHandler{
             Driver driver = dr.findByCallId(canceled.getId());
             driver.setStatus("NON");
             dr.save(driver);
-            dr.save(driver);
 
         }
     }
