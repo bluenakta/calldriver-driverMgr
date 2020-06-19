@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: driver
+  name: drivermgr
   labels:
-    app: driver
+    app: drivermgr
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: driver
+      app: drivermgr
   template:
     metadata:
       labels:
-        app: driver
+        app: drivermgr
     spec:
       containers:
-        - name: driver
+        - name: drivermgr
           image: 271153858532.dkr.ecr.ap-northeast-2.amazonaws.com/admin13-driver:latest
           ports:
             - containerPort: 8080
