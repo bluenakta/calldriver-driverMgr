@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
         - name: drivermgr
-          image: 271153858532.dkr.ecr.ap-northeast-2.amazonaws.com/admin13-driver:latest
+          image: 271153858532.dkr.ecr.ap-northeast-2.amazonaws.com/admin13-driver:v2
           ports:
-            - containerPort: 8080
+            - containerPort: 9090
           readinessProbe:
             httpGet:
               path: '/actuator/health'
-              port: 8080
+              port: 9090
             initialDelaySeconds: 10
             timeoutSeconds: 2
             periodSeconds: 5
@@ -30,7 +30,7 @@ spec:
           livenessProbe:
             httpGet:
               path: '/actuator/health'
-              port: 8080
+              port: 9090
             initialDelaySeconds: 120
             timeoutSeconds: 2
             periodSeconds: 5
