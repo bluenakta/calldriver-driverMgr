@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: drivermgr
-          image: 271153858532.dkr.ecr.ap-northeast-2.amazonaws.com/admin13-driver:v2
+          image: 271153858532.dkr.ecr.ap-northeast-2.amazonaws.com/admin13-driver:v3
           ports:
             - containerPort: 9090
           readinessProbe:
